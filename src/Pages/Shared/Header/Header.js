@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { FaCode } from "react-icons/fa";
 
 
 const Header = () => {
@@ -12,12 +13,11 @@ const Header = () => {
     <div>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">skill.Nation</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
+          <Navbar.Brand href="#"><FaCode></FaCode> skill.Nation</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse className='text-center' id="responsive-navbar-nav">
             <Nav
               className="mx-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
               navbarScroll
             >
               <Nav.Link><Link to='/'>Home</Link></Nav.Link>
@@ -25,7 +25,12 @@ const Header = () => {
               <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
               <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex align-items-center justify-content-center">
+              <Form.Check 
+                type="switch"
+                id="custom-switch"
+                label=""
+              />
               <Button variant="outline-primary">Login</Button>
             </Form>
           </Navbar.Collapse>

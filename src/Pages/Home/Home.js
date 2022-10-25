@@ -3,6 +3,7 @@ import Image from 'react-bootstrap/Image';
 import { Button } from 'react-bootstrap';
 import heroImage from '../../assets/hero.png';
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
             <div className="col-lg-7 text-lg-start text-center">
               <h1 className="mb-4">A broad selection of courses. <br /> Expand your career opportunities </h1>
               <p className="mb-4">Choose from 204,000 online video courses with new additions published every month.</p>
-              <Link className='' to='/courses'><Button variant="outline-primary">See our courses</Button></Link>
+              <Link className='link' to='/courses'><Button variant="outline-primary">See our courses</Button></Link>
             </div>
             <div className="col-lg-4 d-lg-block d-none">
               <Image src={heroImage} alt="illustration" className="img-fluid"/>

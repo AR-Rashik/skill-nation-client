@@ -1,9 +1,19 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
+import CourseCategory from '../CourseCategory/CourseCategory';
+import CourseInfo from '../CourseInfo/CourseInfo';
 
 const Courses = () => {
   return (
-    <div>
-      <h2>This is courses section</h2>
+    <div className='container'>
+      <Row>
+        <Col lg='3'>
+          <CourseCategory></CourseCategory>
+        </Col>
+        <Col lg='9'>
+          <CourseInfo></CourseInfo>
+        </Col>
+      </Row>
     </div>
   );
 };
