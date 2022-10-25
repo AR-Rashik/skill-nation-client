@@ -26,7 +26,7 @@ const Header = () => {
               <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
             </Nav>
             <Form className="d-flex">
-              <Button variant="outline-success">Login</Button>
+              <Button variant="outline-primary">Login</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
