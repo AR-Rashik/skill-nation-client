@@ -5,10 +5,12 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { FaCode, FaUser } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Image } from 'react-bootstrap';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 
 const Header = () => {
@@ -51,7 +53,22 @@ const Header = () => {
                 {
                   user?.uid ?
                   <>
-                    <Image style={{height: '30px'}} roundedCircle src={user?.photoURL}></Image>
+                      <OverlayTrigger placement="bottom" overlay={<Tooltip id="button-tooltip-2">{user?.displayName}</Tooltip>}>
+                        {({ ref, ...triggerHandler }) => (
+                          <Button
+                            variant="light"
+                            {...triggerHandler}
+                            className="d-inline-flex align-items-center"
+                          >
+                            <Image
+                              ref={ref}
+                              style={{height: '30px'}}
+                              roundedCircle
+                              src={user?.photoURL}
+                            />
+                          </Button>
+                        )}
+                      </OverlayTrigger>
                     <Button onClick={handleLogOut}>Log out</Button>
                   </>
                   :

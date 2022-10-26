@@ -1,19 +1,25 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Image } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './Login.css';
 
 
 const Login = () => {
 
+  const [error, setError] = useState('');
+
   const {providerLoginGoogle, signIn} = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const handleGoogleSignIn = () => {
     providerLoginGoogle(googleProvider)
@@ -40,11 +46,13 @@ const Login = () => {
           const user = result.user;
           console.log(user);
           form.reset();
+          setError('');
 
-          navigate('/')
+          navigate(from, {replace: true});
         })
         .catch(error => {
           console.error('Sign in error: ', error);
+          setError(error.message);
         })
   }
 
@@ -63,10 +71,17 @@ const Login = () => {
                 <label className="form-label" for="form1Example13">Email address</label>
               </div>
 
-              <div className="form-outline mb-4">
+              <div className="form-outline mb-2">
                 <input name='password' type="password" id="form1Example23" className="form-control form-control-lg" required/>
                 <label className="form-label" for="form1Example23">Password</label>
               </div>
+
+              {
+                error &&
+                <div className='bg-danger text-light p-2 rounded-2 mb-3 fw-semibold'>
+                  {error}
+                </div>
+              }
 
               <div className="d-flex justify-content-around align-items-center mb-4">
                 
@@ -77,7 +92,6 @@ const Login = () => {
                 <a href="#!">Forgot password?</a>
               </div>
 
-              
               <div className='d-flex justify-content-between'>
                 <button type="submit" className="btn btn-primary btn-lg w-100 me-2">Sign in</button>
                 <Link className='w-100' to='/register'><button type="button" className="btn btn-outline-primary btn-lg w-100">Register</button></Link>

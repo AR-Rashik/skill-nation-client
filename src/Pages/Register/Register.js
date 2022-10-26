@@ -1,11 +1,29 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Image } from 'react-bootstrap';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
 
-  const {createUser} = useContext(AuthContext);
+  const [error, setError] = useState('');
+
+  const {createUser, updateUserProfile} = useContext(AuthContext);
+
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    }
+
+    updateUserProfile(profile)
+        .then(() => {
+
+        })  
+        .catch(error => {
+          console.error('Update user profile error: ', error);
+        })
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -22,10 +40,13 @@ const Register = () => {
         .then( result => {
           const user = result.user;
           console.log(user);
+          setError('');
           form.reset();
+          handleUpdateUserProfile(name, photoURL);
         })
         .catch(error => {
           console.error('Create user error: ', error);
+          setError(error.message);
         })
   }
 
@@ -54,6 +75,13 @@ const Register = () => {
                 <input type="password" id="form1Example23" className="form-control form-control-lg" name='password' required/>
                 <label className="form-label" for="form1Example23">Password</label>
               </div>
+
+              {
+                error &&
+                <div className='bg-danger text-light p-2 rounded-2 mb-3 fw-semibold'>
+                  {error}
+                </div>
+              }
 
               <div className="d-flex justify-content-around align-items-center mb-4">
                 <div className="form-check">
