@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -13,8 +13,9 @@ const Login = () => {
 
   const [error, setError] = useState('');
 
-  const {providerLoginGoogle, signIn} = useContext(AuthContext);
+  const {providerLoginGoogle, providerLoginGitHub, signIn} = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,6 +30,17 @@ const Login = () => {
         })
         .catch(error => {
           console.error('Google sign in error: ', error);
+        })
+  }
+
+  const handleGithubSignIn = () => {
+    providerLoginGitHub(githubProvider)
+        .then(result => {
+          const user = result.user;
+          console.log(user);
+        })
+        .catch(error => {
+          console.error('Github sign in error: ', error);
         })
   }
 
@@ -104,7 +116,7 @@ const Login = () => {
               <div onClick={handleGoogleSignIn} className="btn text-white btn-lg btn-block w-100 mb-3" style={{backgroundColor: "#DB4437"}} role="button">
                 <FaGoogle className='me-2'></FaGoogle> Continue with Google
               </div>
-              <div className="btn text-white btn-lg btn-block w-100 " style={{backgroundColor: "#333"}} role="button">
+              <div onClick={handleGithubSignIn} className="btn text-white btn-lg btn-block w-100 " style={{backgroundColor: "#333"}} role="button">
                 <FaGithub className='me-2'></FaGithub> Continue with Github</div>
             </form>
           </div>
