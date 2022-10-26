@@ -6,13 +6,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { FaCode } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const Header = () => {
+
+  const {user} = useContext(AuthContext);
+
   return (
     <div>
       <Navbar bg="light" expand="lg">
-        <Container fluid>
+        <Container>
           <Navbar.Brand href="#"><FaCode></FaCode> skill.Nation</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse className='text-center' id="responsive-navbar-nav">
@@ -31,7 +36,8 @@ const Header = () => {
                 id="custom-switch"
                 label=""
               />
-              <Button variant="outline-primary">Login</Button>
+              <Link to='/login'><Button variant="outline-primary">Login</Button></Link>
+              <Nav.Link><Link to='/'>{user?.displayName}</Link></Nav.Link>
             </Form>
           </Navbar.Collapse>
         </Container>
