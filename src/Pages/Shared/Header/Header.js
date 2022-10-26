@@ -5,14 +5,25 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { FaCode } from "react-icons/fa";
+import { FaCode, FaUser } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { Image } from 'react-bootstrap';
 
 
 const Header = () => {
 
-  const {user} = useContext(AuthContext);
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+        .then(() => {
+
+        })
+        .catch(error => {
+          console.error('Log out error: ', error);
+        })
+  }
 
   return (
     <div>
@@ -36,8 +47,16 @@ const Header = () => {
                 id="custom-switch"
                 label=""
               />
-              <Link to='/login'><Button variant="outline-primary">Login</Button></Link>
-              <Nav.Link><Link to='/'>{user?.displayName}</Link></Nav.Link>
+              {/* <Nav.Link><Link to='/'>{user?.displayName}</Link></Nav.Link> */}
+                {
+                  user?.uid ?
+                  <>
+                    <Image style={{height: '30px'}} roundedCircle src={user?.photoURL}></Image>
+                    <Button onClick={handleLogOut}>Log out</Button>
+                  </>
+                  :
+                  <Link to='/login'><Button variant="outline-primary">Login</Button></Link>
+                }
             </Form>
           </Navbar.Collapse>
         </Container>
