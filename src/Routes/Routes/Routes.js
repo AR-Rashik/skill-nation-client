@@ -8,12 +8,14 @@ import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import Error from "../../Pages/Shared/Error/Error";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
@@ -50,5 +52,9 @@ export const routes = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
       }
     ]
+  },
+  {
+    path: '*',
+    element: <Error></Error>
   }
 ]);
