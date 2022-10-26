@@ -11,6 +11,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Image } from 'react-bootstrap';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import './Header.css';
 
 
 const Header = () => {
@@ -29,22 +30,23 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" className='mb-5'>
         <Container>
-          <Navbar.Brand href="#"><FaCode></FaCode> skill.Nation</Navbar.Brand>
+          <Link className='text-decoration-none' to='/'><Navbar.Brand className='fw-semibold'><FaCode></FaCode> Skill <span className='bg-dark text-light p-1 rounded'>Nation</span></Navbar.Brand></Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse className='text-center' id="responsive-navbar-nav">
             <Nav
               className="mx-auto my-2 my-lg-0"
               navbarScroll
             >
-              <Nav.Link><Link to='/'>Home</Link></Nav.Link>
-              <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
-              <Nav.Link><Link to='/faq'>FAQ</Link></Nav.Link>
-              <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
+              <Nav.Link><Link className='text-decoration-none text-dark fw-semibold me-5 nav-option' to='/'>Home</Link></Nav.Link>
+              <Nav.Link><Link className='text-decoration-none text-dark fw-semibold me-5 nav-option' to='/courses'>Courses</Link></Nav.Link>
+              <Nav.Link><Link className='text-decoration-none text-dark fw-semibold me-5 nav-option' to='/faq'>FAQ</Link></Nav.Link>
+              <Nav.Link><Link className='text-decoration-none text-dark fw-semibold me-5 nav-option' to='/blog'>Blog</Link></Nav.Link>
             </Nav>
             <Form className="d-flex align-items-center justify-content-center">
-              <Form.Check 
+              <Form.Check
+                className='me-3'
                 type="switch"
                 id="custom-switch"
                 label=""
@@ -69,10 +71,10 @@ const Header = () => {
                           </Button>
                         )}
                       </OverlayTrigger>
-                    <Button onClick={handleLogOut}>Log out</Button>
+                    <Button className='fw-semibold ms-3' variant='outline-danger' size='sm' onClick={handleLogOut}>Log out</Button>
                   </>
                   :
-                  <Link to='/login'><Button variant="outline-primary">Login</Button></Link>
+                  <Link to='/login'><Button className='fw-semibold' variant="outline-primary" size='sm'>Log in</Button></Link>
                 }
             </Form>
           </Navbar.Collapse>

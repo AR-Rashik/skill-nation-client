@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './CourseCategory.css';
 
 const CourseCategory = () => {
 
@@ -16,11 +17,11 @@ const CourseCategory = () => {
 
   return (
     <div>
-      <h3>Total courses: {categories.length}</h3>
+      <h3 className='mb-3'>Total courses: {categories.length}</h3>
       <ListGroup>
         {
           categories.map(category => <ListGroupItem key={category.id}>
-            <Link to={`/courses/${category.id}`}>{category.name}</Link></ListGroupItem>
+            <Link className='text-decoration-none text-dark course-item' to={`/courses/${category.id}`}>{category.name}</Link></ListGroupItem>
           
           )
         }

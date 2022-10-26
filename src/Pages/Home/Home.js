@@ -14,7 +14,7 @@ const Home = () => {
             <div className="col-lg-7 text-lg-start text-center">
               <h1 className="mb-4">A broad selection of courses. <br /> Expand your career opportunities </h1>
               <p className="mb-4">Choose from 204,000 online video courses with new additions published every month.</p>
-              <Link className='link' to='/courses'><Button variant="outline-primary">See our courses</Button></Link>
+              <Link className='link' to='/courses'><Button variant="outline-dark border border-dark border-3 fw-semibold">See our courses</Button></Link>
             </div>
             <div className="col-lg-4 d-lg-block d-none">
               <Image src={heroImage} alt="illustration" className="img-fluid"/>

@@ -9,12 +9,12 @@ const CourseCard = ({category}) => {
   const {name, image_url, id} = category;
 
   return (
-      <Col lg={4}>
+      <Col lg={4} className='mb-4'>
         <Card>
-          <Card.Img variant="top" src={image_url} />
+          <Card.Img style={{height: "200px"}} variant="top" src={image_url} />
           <Card.Body>
-            <Card.Title>{name}</Card.Title>
-            <Link to={`/courses/${category.id}`}><Button>Check details</Button></Link>
+            <Card.Title className='mb-3'>{name}</Card.Title>
+            <Link to={`/courses/${category.id}`}><Button variant="outline-dark" size="sm" className='fw-semibold'>Check details</Button></Link>
           </Card.Body>
         </Card>
       </Col>
