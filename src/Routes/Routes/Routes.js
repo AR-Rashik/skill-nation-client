@@ -28,7 +28,7 @@ export const routes = createBrowserRouter([
       {
         path: '/courses/:id',
         element: <Course></Course>,
-        loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
+        loader: ({params}) => fetch(`https://skill-nation-server.vercel.app/courses/${params.id}`)
       },
       {
         path: '/blog',
@@ -49,7 +49,7 @@ export const routes = createBrowserRouter([
       {
         path: '/checkout/:id',
         element: <PrivateRoute><CourseCheckout></CourseCheckout></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
+        loader: ({params}) => fetch(`https://skill-nation-server.vercel.app/courses/${params.id}`)
       }
     ]
   },

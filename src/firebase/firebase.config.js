@@ -13,13 +13,6 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_appId,
 };
 
-  //   apiKey: "AIzaSyD7GOB5ORP0EAC-9YoP36Rb7MhzhOeKdVE",
-  //   authDomain: "skill-nation-b6ffb.firebaseapp.com",
-  //   projectId: "skill-nation-b6ffb",
-  //   storageBucket: "skill-nation-b6ffb.appspot.com",
-  //   messagingSenderId: "717496735255",
-  //   appId: "1:717496735255:web:c212b2c611ea6707ca6e52",
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
