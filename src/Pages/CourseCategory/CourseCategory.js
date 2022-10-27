@@ -21,7 +21,7 @@ const CourseCategory = () => {
       <ListGroup>
         {
           categories.map(category => <ListGroupItem key={category.id}>
-            <Link className='text-decoration-none text-dark course-item' to={`/courses/${category.id}`}>{category.name}</Link></ListGroupItem>
+            <Link className='text-decoration-none text-dark course-item fw-semibold' to={`/courses/${category.id}`}>{category.name}</Link></ListGroupItem>
           
           )
         }

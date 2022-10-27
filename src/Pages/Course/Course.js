@@ -19,7 +19,7 @@ const Course = () => {
   return (
     <div className='container responsive mb-5'>
       <div className='d-flex justify-content-between mb-5'>
-        <h2 className='display-6'><span className='fw-semibold bg-dark text-light rounded'>Course</span> {title}</h2>
+        <h2 className='display-6'><span className='fw-semibold bg-dark text-light rounded p-1'>Course</span> <span className='fw-semibold'>{title}</span></h2>
         <Pdf targetRef={ref} filename="code-example.pdf">
             {({ toPdf }) => <button className='btn btn-outline-dark border border-dark border-2 fw-semibold' onClick={toPdf}>Download Pdf  <FaDownload></FaDownload> </button>}
           </Pdf>
@@ -30,7 +30,7 @@ const Course = () => {
             <Card.Header className='fw-semibold'>What we have in our course?</Card.Header>
             <Card.Img variant="top" src={image_url}/>
             <Card.Body>
-              <Card.Title>{title}</Card.Title>
+              <Card.Title className='fe-semibold fs-4'>{title}</Card.Title>
               <Card.Text>
                 {details}
               </Card.Text>

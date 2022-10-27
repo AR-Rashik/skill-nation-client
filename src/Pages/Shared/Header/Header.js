@@ -71,10 +71,10 @@ const Header = () => {
                           </Button>
                         )}
                       </OverlayTrigger>
-                    <Button className='fw-semibold ms-3' variant='outline-danger' size='sm' onClick={handleLogOut}>Log out</Button>
+                    <Button className='fw-semibold ms-3 border border-2 border-danger' variant='outline-danger' size='sm' onClick={handleLogOut}>Log out</Button>
                   </>
                   :
-                  <Link to='/login'><Button className='fw-semibold' variant="outline-primary" size='sm'>Log in</Button></Link>
+                  <Link to='/login'><Button className='fw-semibold border border-2 border-primary' variant="outline-primary" size='sm'>Log in</Button></Link>
                 }
             </Form>
           </Navbar.Collapse>

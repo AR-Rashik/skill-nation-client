@@ -5,33 +5,33 @@ import { FaCode } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div className='mt-5 pt-5'>
-       <CDBFooter className="shadow bg-secodary">
+    <div className='mt-5 fixed-bottom'>
+       <CDBFooter className="shadow bg-dark">
           <CDBBox
             display="flex"
             justifyContent="between"
             alignItems="center"
-            className="mx-auto py-4 flex-wrap"
+            className="mx-auto py-3 flex-wrap"
             style={{ width: '80%' }}
           >
             <CDBBox display="flex" alignItems="center">
-              <div href="/" className="d-flex align-items-center p-0 text-dark">
-                <Link className='text-decoration-none text-dark' to='/'><div className='fw-semibold'><FaCode></FaCode> Skill <span className='bg-dark text-light p-1 rounded'>Nation</span></div></Link>
+              <div href="/" className="d-flex align-items-center p-0 text-light">
+                <Link className='text-decoration-none text-light' to='/'><div className='fw-semibold'><FaCode></FaCode> Skill <span className='bg-light text-dark p-1 rounded'>Nation</span></div></Link>
                   <span className="ml-4 h5 mb-0 font-weight-bold"></span>
               </div>
             </CDBBox>
             <CDBBox>
-              <small className="ml-2">&copy; SkillNation, 2022. All rights reserved.</small>
+              <small className="ml-2 text-light fw-semibold">&copy; SkillNation, 2022. All rights reserved.</small>
             </CDBBox>
             <CDBBox display="flex">
-              <CDBBtn flat color="dark" className="p-2">
-                <CDBIcon fab icon="facebook-f" />
+              <CDBBtn flat color="light" className="p-1">
+                <CDBIcon className='text-dark' fab icon="facebook-f" />
               </CDBBtn>
-              <CDBBtn flat color="dark" className="mx-3 p-2">
-                <CDBIcon fab icon="twitter" />
+              <CDBBtn flat color="light" className="mx-3 p-1">
+                <CDBIcon className='text-dark' fab icon="twitter" />
               </CDBBtn>
-              <CDBBtn flat color="dark" className="p-2">
-                <CDBIcon fab icon="instagram" />
+              <CDBBtn flat color="light" className="p-1">
+                <CDBIcon className='text-dark' fab icon="instagram" />
               </CDBBtn>
             </CDBBox>
           </CDBBox>

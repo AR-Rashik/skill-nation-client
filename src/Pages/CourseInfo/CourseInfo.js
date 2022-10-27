@@ -15,7 +15,7 @@ const CourseInfo = () => {
   }, [])
 
   return (
-    <div>
+    <div className='pb-5'>
       <Row>
           {
             categories.map(category => <CourseCard

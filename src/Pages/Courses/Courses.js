@@ -5,7 +5,7 @@ import CourseInfo from '../CourseInfo/CourseInfo';
 
 const Courses = () => {
   return (
-    <div className='container'>
+    <div className='container pb-5'>
       <Row>
         <Col lg='3'>
           <CourseCategory></CourseCategory>

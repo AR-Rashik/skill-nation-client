@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -88,7 +89,7 @@ const Register = () => {
                   <input className="form-check-input" type="checkbox" value="" id="form1Example3" checked />
                   <label className="form-check-label" for="form1Example3"> Remember me </label>
                 </div>
-                <a href="#!">Forgot password?</a>
+                <div className='fw-semibold'>Already registered? <Link to='/login'>Log in</Link></div>
               </div>
                 <button type="submit" className="btn btn-primary btn-lg w-100">Register</button>
             </form>
