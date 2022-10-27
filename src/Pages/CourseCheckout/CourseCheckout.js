@@ -10,7 +10,7 @@ const CourseCheckout = () => {
   const {title, image_url} = course;
 
   return (
-    <div className='container text-center'>
+    <div className='container text-center mb-5 pb-5'>
       <Image fluid src={image_url}></Image>
       <div className='display-4 mt-4'>Welcome to <span className='fw-semibold'>{title}</span> course</div>
     </div>

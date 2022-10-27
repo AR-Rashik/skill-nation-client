@@ -17,7 +17,7 @@ const Course = () => {
   const {details, title, image_url, price, rating, teacher, category_id} = course;
 
   return (
-    <div className='container responsive mb-5'>
+    <div className='container responsive mb-5 pb-5'>
       <div className='d-flex justify-content-between mb-5'>
         <h2 className='display-6'><span className='fw-semibold bg-dark text-light rounded p-1'>Course</span> <span className='fw-semibold'>{title}</span></h2>
         <Pdf targetRef={ref} filename="code-example.pdf">
